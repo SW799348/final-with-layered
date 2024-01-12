@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="anchorPaneForm" prefHeight="450.0" prefWidth="450.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalwithlayered.controller.AddSupplierFormController">
+   <children>
+      <Label layoutX="114.0" layoutY="25.0" prefHeight="31.0" prefWidth="239.0" text="SUPPLIER  FORM" textFill="#307377" AnchorPane.leftAnchor="114.0" AnchorPane.rightAnchor="106.0">
+         <font>
+            <Font name="Arial Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="90.0" layoutY="193.0" prefHeight="41.0" prefWidth="264.0" promptText="name" style="-fx-background-radius: 12; -fx-border-color: D9D9D9; -fx-border-radius: 12;" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="88.66666666666669" />
+      <TextField fx:id="txtAddress" layoutX="90.0" layoutY="267.0" prefHeight="41.0" prefWidth="310.0" promptText="address" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: whiD9D9D9e;" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" />
+      <TextField fx:id="txtTel" layoutX="90.0" layoutY="341.0" prefHeight="41.0" prefWidth="310.0" promptText="tel" style="-fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: whiD9D9D9e;" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" />
+      <Label layoutX="95.0" layoutY="100.0" text="Supplier Id " />
+      <Label layoutX="97.0" layoutY="175.0" text="Name" />
+      <Label layoutX="96.0" layoutY="251.0" text="Address" />
+      <Label layoutX="95.0" layoutY="325.0" text="Telphone" />
+      <ImageView fitHeight="31.0" fitWidth="43.0" layoutX="396.0" pickOnBounds="true" preserveRatio="true" />
+      <JFXButton fx:id="btnClose" layoutX="378.0" layoutY="1.0" onAction="#btnCloseOnAction" prefHeight="31.0" prefWidth="52.0">
+         <graphic>
+            <ImageView fitHeight="41.0" fitWidth="43.0">
+               <image>
+                  <Image url="@../assests/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="303.0" layoutY="408.0" onAction="#btnSaveOnAction" prefHeight="27.0" prefWidth="56.0" style="-fx-background-color: #00505F;" text="save" textFill="#ebe6e6">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="369.0" layoutY="408.0" onAction="#btnCancelOnAction" style="-fx-background-color: #00505F;" text="cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblSupId" layoutX="90.0" layoutY="119.0" prefHeight="41.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-radius: 12; -fx-border-color: D9D9D9;" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0" />
+   </children>
+</AnchorPane>

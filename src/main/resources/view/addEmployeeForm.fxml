@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="468.0" prefWidth="439.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalwithlayered.controller.AddEmployeeFormController">
+   <children>
+      <Text layoutX="120.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="EMPLOYEE FORM" wrappingWidth="222.08758544921875">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></Text>
+      <TextField fx:id="txtName" layoutX="65.33333333333333" layoutY="148.0" prefHeight="41.0" prefWidth="310.0" promptText="name" style="-fx-background-radius: 12;" AnchorPane.leftAnchor="65.33333333333333" AnchorPane.rightAnchor="65.33333333333331" />
+      <TextField fx:id="txtAddress" layoutX="65.66666666666667" layoutY="221.0" prefHeight="41.0" prefWidth="310.0" promptText="address" style="-fx-background-radius: 12;" AnchorPane.leftAnchor="65.0" AnchorPane.rightAnchor="65.0" />
+      <TextField fx:id="txtContact" layoutX="65.33333333333333" layoutY="294.0" prefHeight="41.0" prefWidth="310.0" promptText="contact info" style="-fx-background-radius: 12;" AnchorPane.leftAnchor="65.33333333333333" AnchorPane.rightAnchor="65.33333333333331" />
+      <TextField fx:id="txtUserId" layoutX="65.33333333333333" layoutY="366.0" prefHeight="41.0" prefWidth="310.0" promptText="user idd" style="-fx-background-radius: 12;" AnchorPane.leftAnchor="65.33333333333333" AnchorPane.rightAnchor="65.33333333333331" />
+      <JFXButton layoutX="377.0" layoutY="1.0" onAction="#btnCloseOnAction" prefHeight="41.0" prefWidth="62.0" text=" ">
+         <graphic>
+            <ImageView fitHeight="41.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assests/close.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </JFXButton>
+      <JFXButton layoutX="280.0" layoutY="426.0" onAction="#btnSaveOnAction" style="-fx-background-color: #00505F;" text="save" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <JFXButton layoutX="344.0" layoutY="426.0" onAction="#btnCancelOnAction" style="-fx-background-color: #00505F;" text="cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></JFXButton>
+      <Label fx:id="lblEmpId" layoutX="141.0" layoutY="82.0" prefHeight="25.0" prefWidth="92.0" />
+      <Label layoutX="67.0" layoutY="347.0" text="User Id" />
+      <Label layoutX="68.0" layoutY="272.0" text="Contatct Number" />
+      <Label layoutX="68.0" layoutY="201.0" text="Address" />
+      <Label layoutX="68.0" layoutY="126.0" text="Name" />
+      <Label layoutX="69.0" layoutY="86.0" text="Employee Id" />
+   </children>
+</AnchorPane>

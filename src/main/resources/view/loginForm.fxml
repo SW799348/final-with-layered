@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="loginAnchorPane" prefHeight="577.0" prefWidth="943.0" style="-fx-background-color: #2B687E;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalwithlayered.controller.LoginFormController">
+   <children>
+      <Pane layoutX="26.0" layoutY="26.0" prefHeight="521.0" prefWidth="889.0" style="-fx-background-color: white; -fx-background-radius: 12;" AnchorPane.bottomAnchor="26.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="26.0" AnchorPane.topAnchor="26.0">
+         <children>
+            <ImageView fitHeight="503.0" fitWidth="397.0" layoutX="534.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" styleClass="im">
+               <image>
+                  <Image url="@../assests/login2.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="127.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back !" wrappingWidth="282.13672637939453">
+               <font>
+                  <Font name="Century Gothic Bold" size="30.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtUsername" layoutX="89.0" layoutY="189.0" prefHeight="43.0" prefWidth="345.0" promptText="Enter Username" style="-fx-background-radius: 20;" />
+            <Text layoutX="131.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Let's Start">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextField fx:id="txtPassword" layoutX="89.0" layoutY="265.0" prefHeight="43.0" prefWidth="345.0" promptText="Enter Password" style="-fx-background-radius: 20;" />
+            <Label layoutX="98.0" layoutY="169.0" text="Username" />
+            <Label layoutX="98.0" layoutY="246.0" text="Password" />
+            <JFXButton layoutX="90.0" layoutY="336.0" onAction="#btnLoginOnAction" prefHeight="43.0" prefWidth="345.0" style="-fx-background-color: #0A99B3; -fx-background-radius: 20;" text="Login" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </JFXButton>
+            <Text layoutX="97.0" layoutY="408.0" onDragDetected="#txtForgetPasswordOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Forget Password" underline="true">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

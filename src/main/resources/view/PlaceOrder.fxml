@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="subAnchorPane" prefHeight="577.0" prefWidth="1073.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalwithlayered.controller.PlaceOrderFormController">
+   <children>
+      <Pane layoutX="18.0" layoutY="63.0" prefHeight="147.0" prefWidth="337.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 10;">
+         <children>
+            <Label fx:id="lblOrderId" layoutX="74.0" layoutY="22.0" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #EFF1EE; -fx-background-radius: 5;" />
+            <Label layoutX="13.0" layoutY="22.0" prefHeight="32.0" prefWidth="62.0" style="-fx-background-radius: 0; -fx-background-color: #EFF1EE;" text="  Order id :" />
+            <ComboBox fx:id="cmbCustId" layoutX="155.0" layoutY="22.0" onAction="#cmbCustomerIdOnAction" prefHeight="32.0" prefWidth="126.0" promptText="Customer Id" style="-fx-background-color: #EFF1EE;" />
+            <JFXButton layoutX="281.0" layoutY="22.0" onAction="#btnAddCustomerOnAction" prefHeight="32.0" prefWidth="41.0" style="-fx-background-color: #00505F;" text="Add" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="14.0" layoutY="85.0" prefHeight="32.0" prefWidth="102.0" style="-fx-background-color: #EFF1EE;" text="  Payment Status :" />
+            <TextField fx:id="txtOrderS" layoutX="115.0" layoutY="85.0" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #EFF1EE;" />
+         </children>
+      </Pane>
+      <TableView fx:id="tblOrderCart" layoutX="21.0" layoutY="289.0" prefHeight="215.0" prefWidth="1030.0" stylesheets="@../css/style.css">
+         <columns>
+            <TableColumn fx:id="colMaterialId" prefWidth="114.66668128967285" text="Material Id" />
+            <TableColumn fx:id="colDescription" minWidth="7.333343505859375" prefWidth="128.00001525878906" text="Description" />
+            <TableColumn fx:id="colSize" prefWidth="121.33334350585938" text="Size" />
+            <TableColumn fx:id="colUnitPrice" prefWidth="130.66668701171875" text=" Unit Price&#10;" />
+            <TableColumn fx:id="colRequireMaterialQtyForEachSizes" prefWidth="167.33331298828125" text="      Required Material&#10;       qty for each sizes" />
+            <TableColumn fx:id="colQtyOnShirts" prefWidth="117.33331298828125" text="  Qty Of Shirts " />
+            <TableColumn fx:id="colTotal" prefWidth="121.33331298828125" text="Total" />
+            <TableColumn fx:id="colAction" prefWidth="124.6666259765625" />
+         </columns>
+      </TableView>
+      <Label layoutX="22.0" layoutY="14.0" text="Place Order Form">
+         <font>
+            <Font name="Arial Bold" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblDate" layoutX="858.0" layoutY="11.0" prefHeight="32.0" prefWidth="197.0" text="date">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Pane layoutX="382.0" layoutY="63.0" prefHeight="147.0" prefWidth="367.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 10;">
+         <children>
+            <ComboBox fx:id="cmbMaterialId" layoutX="6.0" layoutY="22.0" onAction="#cmbMaterialIdOnAction" prefHeight="32.0" prefWidth="159.0" promptText="Material Id" style="-fx-background-color: #EFF1EE;" />
+            <Label fx:id="lblQtyOnHand" layoutX="98.0" layoutY="84.0" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #EFF1EE; -fx-background-radius: 5;" />
+            <Label layoutX="8.0" layoutY="84.0" prefHeight="32.0" prefWidth="91.0" style="-fx-background-radius: 0; -fx-background-color: #EFF1EE;" text="  Qty On hand :" />
+            <Label layoutX="193.0" layoutY="83.0" prefHeight="32.0" prefWidth="91.0" style="-fx-background-radius: 0; -fx-background-color: #EFF1EE;" text="  Unit Price :" />
+            <Label fx:id="lblUnitPrice" layoutX="283.0" layoutY="83.0" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #EFF1EE; -fx-background-radius: 5;" />
+            <Label fx:id="lblDescription" layoutX="284.0" layoutY="24.0" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #EFF1EE; -fx-background-radius: 5;" />
+            <Label layoutX="193.0" layoutY="24.0" prefHeight="32.0" prefWidth="91.0" style="-fx-background-radius: 0; -fx-background-color: #EFF1EE;" text="  Description :" />
+         </children></Pane>
+      <JFXButton layoutX="925.0" layoutY="226.0" onAction="#btnAddToCartOnAction" prefHeight="39.0" prefWidth="126.0" style="-fx-background-color: #00505F;" text="         Add to Cart" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Line endX="413.3333435058594" endY="210.6666717529297" layoutX="-45.0" startX="413.3333435058594" startY="61.999996185302734" />
+      <JFXButton layoutX="963.0" layoutY="522.0" onAction="#btnPlaceOrderOnAction" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #00505F;" text="Place Order" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="22.0" layoutY="527.0" prefHeight="25.0" prefWidth="69.0" text="Net Total :">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblNetTotal" layoutX="91.0" layoutY="527.0" prefHeight="25.0" prefWidth="69.0" />
+      <JFXButton layoutX="858.0" layoutY="524.0" onAction="#btnCancelOnAction" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #00505F;" text="Cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Pane layoutX="780.0" layoutY="61.0" prefHeight="150.0" prefWidth="267.0" style="-fx-background-color: #D9D9D9; -fx-background-radius: 10;">
+         <children>
+            <ComboBox fx:id="cmbSize" layoutX="23.0" layoutY="10.0" onAction="#cmbSizeOnAction" prefHeight="32.0" prefWidth="224.0" promptText="Size" style="-fx-background-color: #EFF1EE;" />
+            <TextField fx:id="txtQtyOfShirts" layoutX="176.0" layoutY="54.0" onAction="#txtQtyOfShirtsOnAction" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #EFF1EE;" />
+            <TextField fx:id="txtRequiredMaterialQty" layoutX="176.0" layoutY="98.0" onAction="#txtRequiredMaterialQtyOnAction" prefHeight="39.0" prefWidth="69.0" style="-fx-background-color: #EFF1EE;" />
+            <Label layoutX="23.0" layoutY="54.0" prefHeight="32.0" prefWidth="153.0" style="-fx-background-color: #EFF1EE;" text="   Qty of Shirts                :" />
+            <Label layoutX="23.0" layoutY="98.0" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: #EFF1EE;" text="    Required material qty :&#10;    for 1 item" />
+         </children>
+      </Pane>
+      <Line endX="413.3333435058594" endY="210.6666717529297" layoutX="351.0" startX="413.3333435058594" startY="61.999996185302734" />
+      <JFXButton layoutX="780.0" layoutY="524.0" onAction="#btnReportOnAction" prefHeight="32.0" prefWidth="62.0" style="-fx-background-color: #00505F;" text="report" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

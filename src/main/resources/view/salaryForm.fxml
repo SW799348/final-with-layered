@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="577.0" prefWidth="1073.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.finalwithlayered.controller.SalaryFormController">
+   <children>
+      <JFXButton layoutX="44.0" layoutY="45.0" onAction="#btnSearchOnAction" prefHeight="32.0" prefWidth="69.0" style="-fx-background-color: #00505F; -fx-background-radius: 3;" text=" search" textFill="#fffdfd">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblSalary" layoutX="34.0" layoutY="296.0" prefHeight="259.0" prefWidth="1005.0" stylesheets="@../css/style.css" AnchorPane.leftAnchor="34.0" AnchorPane.rightAnchor="34.0">
+         <columns>
+            <TableColumn fx:id="colSalaryId" prefWidth="111.33333969116211" text="SALARY ID" />
+            <TableColumn fx:id="colEmployeeId" minWidth="7.333343505859375" prefWidth="162.66673278808594" text="EMPLOYEE ID" />
+            <TableColumn fx:id="colMonth" prefWidth="169.33331298828125" text="MONTH&#10;" />
+            <TableColumn fx:id="colOtHours" prefWidth="182.00003051757812" text="OT HOURS" />
+            <TableColumn fx:id="colTotalSalary" prefWidth="207.3333740234375" text="TOTAL SALARY" />
+            <TableColumn fx:id="colDelete" prefWidth="170.66668701171875" />
+         </columns>
+      </TableView>
+      <Label layoutX="61.0" layoutY="166.0" text="Salary Id :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="263.0" layoutY="166.0" prefHeight="20.0" prefWidth="95.0" text="Employee Id :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblSalaryId" layoutX="130.0" layoutY="160.0" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: blawhiteck;" />
+      <Label fx:id="lblHoursToBeWorkedPerMonth" layoutX="856.0" layoutY="121.0" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: white;" />
+      <Label layoutX="466.0" layoutY="17.0" prefHeight="38.0" prefWidth="158.0" text="     SALARY" AnchorPane.leftAnchor="449.0" AnchorPane.rightAnchor="449.0">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtSearch" layoutX="113.0" layoutY="46.0" onAction="#txtSearchOnAction" prefHeight="32.0" prefWidth="166.0" promptText="   search here" style="-fx-border-color: #D9D9D9; -fx-background-radius: 5; -fx-border-radius: 3;" />
+      <ComboBox fx:id="cmbEmployeeId" layoutX="356.0" layoutY="163.0" onAction="#cmbEmployeeIdOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #EFF1EE;" />
+      <JFXButton layoutX="904.0" layoutY="256.0" onAction="#btnEnterOnAction" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #00505F;" text="enter" textFill="#fffefe">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="lblDate" layoutX="937.0" layoutY="28.0" prefHeight="25.0" prefWidth="104.0" />
+      <Label layoutX="263.0" layoutY="232.0" prefHeight="46.0" prefWidth="95.0" text="Ot hours       :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblOtHours" layoutX="356.0" layoutY="242.0" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: white;" />
+      <JFXButton layoutX="971.0" layoutY="256.0" onAction="#btnCancelOnAction" prefHeight="25.0" prefWidth="56.0" style="-fx-background-color: #00505F;" text="cancel" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="554.0" layoutY="166.0" prefHeight="20.0" prefWidth="69.0" text="Month  :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbMonth" layoutX="615.0" layoutY="163.0" onAction="#cmbMonthOnAction" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #EFF1EE;" />
+      <Label layoutX="554.0" layoutY="232.0" prefHeight="46.0" prefWidth="95.0" text="Total Salary :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblTotal" layoutX="649.0" layoutY="242.0" prefHeight="32.0" prefWidth="104.0" style="-fx-background-color: white;" />
+      <Label layoutX="785.0" layoutY="165.0" text="Start date :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePickerStart" layoutX="867.0" layoutY="163.0" prefHeight="25.0" prefWidth="104.0" />
+      <Label layoutX="61.0" layoutY="245.0" text="End date :">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePickerEnd" layoutX="131.0" layoutY="243.0" onKeyPressed="#endDateOnAction" prefHeight="25.0" prefWidth="104.0" />
+   </children>
+</AnchorPane>
