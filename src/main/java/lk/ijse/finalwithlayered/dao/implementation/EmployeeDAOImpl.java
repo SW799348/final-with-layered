@@ -2,7 +2,6 @@ package lk.ijse.finalwithlayered.dao.implementation;
 
 import lk.ijse.finalwithlayered.dao.SqlUtil;
 import lk.ijse.finalwithlayered.dao.interfaces.EmployeeDAO;
-import lk.ijse.finalwithlayered.entity.Customer;
 import lk.ijse.finalwithlayered.entity.Employee;
 
 import java.sql.ResultSet;

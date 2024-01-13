@@ -1,6 +1,6 @@
 package lk.ijse.finalwithlayered.dao;
 
-import lk.ijse.finalwithlayered.entity.Customer;
+import lk.ijse.finalwithlayered.dto.MaterialDto;
 
 import java.sql.SQLException;
 import java.util.ArrayList;

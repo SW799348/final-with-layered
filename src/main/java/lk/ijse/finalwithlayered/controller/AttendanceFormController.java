@@ -23,9 +23,11 @@ import lk.ijse.finalwithlayered.bo.boInter.EmployeeBO;
 import lk.ijse.finalwithlayered.dto.AttendanceDto;
 import lk.ijse.finalwithlayered.dto.EmployeeDto;
 import lk.ijse.finalwithlayered.dto.tm.AttendanceTm;
+import lk.ijse.finalwithlayered.entity.Employee;
 
 
 import java.sql.Date;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -117,7 +119,14 @@ public class AttendanceFormController {
 
         ArrayList<AttendanceDto> dtoList = null;
 
-        dtoList = attendanceBO.getAllAttendances();
+        try {
+            dtoList = attendanceBO.getAllAttendances();
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         for (int i = 0; i < dtoList.size(); i++) {
              System.out.println( dtoList.get(i).getEmpId());
@@ -152,11 +161,20 @@ public class AttendanceFormController {
 
     private void setEmpIdComboBox() {
         ObservableList<String> obList = FXCollections.observableArrayList();
-        ArrayList<String> allId = new EmployeeModel().getAllId();
-        for (String id : allId) {
-            obList.add(id);
+        ArrayList<String> allId = null;
+        try {
+            allId = employeeBO.getAllEmpId();
+
+            for (String id : allId) {
+                obList.add(id);
+            }
+            cmbEmployeeId.setItems(obList);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
         }
-        cmbEmployeeId.setItems(obList);
+
 
     }
 
@@ -174,13 +192,19 @@ public class AttendanceFormController {
     }
     @FXML
     void cmbEmployeeIdOnAction(ActionEvent event) {
+
         String id = cmbEmployeeId.getValue();
-        EmployeeModel employeeModel = new EmployeeModel();
 
-        EmployeeDto employee = employeeModel.getEmployee(id);
+        try {
+            Employee employee = employeeBO.getEmployee(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
 
-       // txtEmpId.setText(employee.getEmpId());
+        // txtEmpId.setText(employee.getEmpId());
     }
 
     private void addButtonsToTable() {
@@ -204,15 +228,24 @@ public class AttendanceFormController {
 
             btnDelete.setOnAction(event -> {
                 String id = param.getValue().getAttendanceId();
-                AttendanceModel attendanceModel = new AttendanceModel();
-                boolean isDeleted = attendanceModel.deleteAttendance(id);
+                boolean isDeleted = false;
+                try {
+                    isDeleted = attendanceBO.deleteAttendance(id);
 
-                if (isDeleted) {
-                    System.out.println("customer deleted Successfully!!");
-                    loadAllAttendance();
-                } else {
-                    System.out.println("something went wrong !!");
+                    if (isDeleted) {
+                        System.out.println("attendance deleted Successfully!!");
+                        loadAllAttendance();
+                    } else {
+                        System.out.println("something went wrong !!");
+                    }
+
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                } catch (ClassNotFoundException e) {
+                    throw new RuntimeException(e);
                 }
+
+
 
 
             });
@@ -232,8 +265,6 @@ public class AttendanceFormController {
             LocalTime timeIn = LocalTime.parse(lblCurrentTime.getText());
             String attendanceId = lblAttendanceId.getText();
 
-
-
             AttendanceDto dto = new AttendanceDto(
                     attendanceId,
                     empId,
@@ -243,11 +274,10 @@ public class AttendanceFormController {
                     0
             );
 
-            AttendanceModel attendanceModel = new AttendanceModel();
 
-
-                boolean isSaved =attendanceModel .saveAttendance(dto);
-
+            boolean isSaved = false;
+            try {
+                isSaved = attendanceBO .saveAttendance(dto);
                 if (isSaved){
                     System.out.println("saved attendance");
                     new Alert(Alert.AlertType.CONFIRMATION,"attendance saved").show();
@@ -256,6 +286,11 @@ public class AttendanceFormController {
                     System.out.println("not saved attendance");
                 }
 
+            } catch (SQLException e) {
+                new Alert(Alert.AlertType.ERROR,"attendance can not saved").show();
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
 
         }
 
@@ -269,23 +304,41 @@ public class AttendanceFormController {
 
     @FXML
     void btnUpdateOnAction(ActionEvent event) {
-        boolean isUpdated= new AttendanceModel().updateAttendance(cmbEmployeeId.getValue(), Date.valueOf(datePickerId.getValue()), LocalTime.parse(lblCurrentTime.getText()));
+        boolean isUpdated= false;
+        try {
+            isUpdated = attendanceBO.updateAttendance(cmbEmployeeId.getValue(), Date.valueOf(datePickerId.getValue()), LocalTime.parse(lblCurrentTime.getText()));
 
-        if (isUpdated){
-            System.out.println("out time updated");
-            new AttendanceModel().calculateWorkingHours(cmbEmployeeId.getValue(),Date.valueOf(datePickerId.getValue()));
-            loadAllAttendance();
-        }else {
-            System.out.println("out time not updated");
+            if (isUpdated){
+                System.out.println("out time updated");
+                attendanceBO.calculateWorkingHours(cmbEmployeeId.getValue(),Date.valueOf(datePickerId.getValue()));
+                loadAllAttendance();
+            }else {
+                System.out.println("out time not updated");
+
+            }
+        } catch (SQLException e) {
+            new Alert(Alert.AlertType.CONFIRMATION,"attendance updated").show();
+        } catch (ClassNotFoundException e) {
+            new Alert(Alert.AlertType.ERROR,"attendance not updated").show();
 
         }
+
+
     }
     private String generateNextAttendanceId() {
 
-            String attendanceId = AttendanceModel.generateNextAttendanceId();
+        String attendanceId = null;
+        try {
+            attendanceId = attendanceBO.generateNextAttendanceId();
             lblAttendanceId.setText(attendanceId);
 
             return null;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+
     }
     private boolean validateAttendance() {
         String id = cmbEmployeeId.getValue();

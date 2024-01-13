@@ -17,6 +17,10 @@ public class DbConnection {
         return dbConnection == null ? dbConnection= new DbConnection() : dbConnection;
     }
 
+    public static DbConnection getInstance() {
+        return null;
+    }
+
     public Connection getConnection() {
         return connection;
     }
